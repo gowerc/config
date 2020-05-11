@@ -1,0 +1,55 @@
+{
+    "workbench.colorTheme": "Default Light+",
+    "editor.trimAutoWhitespace": false, //Stop auto removing of white space
+    "editor.renderWhitespace": "all",    //View white space
+    "files.eol": "\n",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    
+    // Command to provide Rstudio like REPL
+    // Requires installation of multicommnad plugin
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.Line-run",
+            "sequence": [
+                "expandLineSelection",
+                "workbench.action.terminal.runSelectedText",
+                "cancelSelection"
+            ]
+        }
+    ],
+    
+    
+    
+    
+    
+    "window.zoomLevel": 0,
+    "PandocCiter.DefaultBib": "/Users/gowerc/Desktop/pandoc_test/testing_tex.bib",
+    "PandocCiter.RootFile": "/Users/gowerc/Desktop/pandoc_test/testing_tex.bib",
+    "explorer.confirmDragAndDrop": false,
+    "editor.detectIndentation": false,
+    "yaml.schemas": {
+        "file:///toc.schema.json": "/toc\\.yml/i"
+    },
+    "[yaml]":  {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 4,
+		"editor.autoIndent": "brackets"
+    },
+    "terminal.external.osxExec": "Iterm.app",
+    "kite.showWelcomeNotificationOnStartup": false,
+    "r.bracketedPaste": true,
+    "r.alwaysUseActiveTerminal": true,
+    "files.associations": {
+        "*.rmd": "markdown"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "r.sessionWatcher": true,
+    "editor.autoClosingOvertype": "always",
+    "vim.vimrc.enable": true,
+    "todo-tree.highlights.defaultHighlight": {
+        "background": "white"
+    }
+}

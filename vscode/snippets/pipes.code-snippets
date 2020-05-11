@@ -1,0 +1,10 @@
+{
+
+    "pipes": {
+		"prefix": "pipes",
+		"body": [
+			" %>% "
+		],
+		"description": "R Magrittr Style Pipe Operator"
+	}
+}
