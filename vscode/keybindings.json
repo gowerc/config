@@ -5,24 +5,30 @@
         "args": { "command": "multiCommand.Line-run" },
         "when": "editorTextFocus && !editorHasSelection"
     },
+    
     {
         "key": "ctrl+enter",
         "command": "workbench.action.terminal.runSelectedText",
         "when": "editorTextFocus && editorHasSelection"
     },
-
+    
+    {
+        "key" : "ctrl+enter",
+        "command" : "r.runSelection",
+        "when" :  "editorTextFocus && resourceExtname == .R"
+    },
     
     { 
         "key": "ctrl+z", 
         "command": "workbench.action.terminal.focus",
         "when": "editorTextFocus"
     },
+    
     { 
         "key": "ctrl+z", 
         "command": "workbench.action.focusActiveEditorGroup", 
         "when": "terminalFocus"
     },
-    
     
     {
         "key": "alt+tab",
@@ -34,5 +40,5 @@
         "command": "editor.action.insertSnippet",
         "args": { "name": "pipes" }
     }
-
+    z
 ]

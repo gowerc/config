@@ -18,13 +18,7 @@
         }
     ],
     
-    
-    
-    
-    
     "window.zoomLevel": 0,
-    "PandocCiter.DefaultBib": "/Users/gowerc/Desktop/pandoc_test/testing_tex.bib",
-    "PandocCiter.RootFile": "/Users/gowerc/Desktop/pandoc_test/testing_tex.bib",
     "explorer.confirmDragAndDrop": false,
     "editor.detectIndentation": false,
     "yaml.schemas": {
@@ -36,7 +30,6 @@
 		"editor.autoIndent": "brackets"
     },
     "terminal.external.osxExec": "Iterm.app",
-    "kite.showWelcomeNotificationOnStartup": false,
     "r.bracketedPaste": true,
     "r.alwaysUseActiveTerminal": true,
     "files.associations": {
@@ -46,10 +39,10 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "python.jediEnabled": false,
     "workbench.iconTheme": "vscode-icons",
-    "r.sessionWatcher": true,
     "editor.autoClosingOvertype": "always",
     "vim.vimrc.enable": true,
     "todo-tree.highlights.defaultHighlight": {
         "background": "white"
-    }
+    },
+    "r.sessionWatcher": true
 }
