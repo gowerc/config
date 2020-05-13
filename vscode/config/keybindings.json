@@ -1,0 +1,152 @@
+[
+
+    
+    
+    
+    ////////////////////
+    //
+    // Window switching 
+    //
+    ///////////////////
+    { 
+        "key": "ctrl+z", 
+        "command": "workbench.action.terminal.focus",
+        "when": "editorTextFocus"
+    },
+    { 
+        "key": "ctrl+z", 
+        "command": "workbench.action.focusActiveEditorGroup", 
+        "when": "terminalFocus"
+    },    
+    { 
+        "key": "ctrl+e", 
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    { 
+        "key": "ctrl+t", 
+        "command": "workbench.action.terminal.focus"
+    }, 
+    {
+        "key" : "ctrl+x",
+        "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "alt+tab",
+        "command": "workbench.action.quickSwitchWindow"
+    },
+    
+    ////////////////////
+    //
+    // Interactive code execution 
+    //
+    ///////////////////
+    { 
+        "key": "ctrl+enter", 
+        "command": "extension.multiCommand.execute" , 
+        "args": { "command": "multiCommand.Line-run" },
+        "when": "editorTextFocus && !editorHasSelection"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "workbench.action.terminal.runSelectedText",
+        "when": "editorTextFocus && editorHasSelection"
+    },
+    {
+        "key" : "ctrl+enter",
+        "command" : "r.runSelection",
+        "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
+    },
+    
+    ////////////////////
+    //
+    // Inserts
+    //
+    ///////////////////
+  
+    
+    // R - Magrittr pipes
+    {
+        "key": "ctrl+shift+m",
+        "command": "editor.action.insertSnippet",
+        "when" : "editorFocus",
+        "args": { "name": "pipes" }
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "terminalFocus",
+        "args": { "text": "%>%" }
+     },
+     
+         
+    ////////////////////
+    //
+    // Batch Command execution
+    //
+    ///////////////////
+    
+    
+    // Open pre-set commands
+    {
+        "key": "ctrl+shift+c",
+        "command": "command-runner.run"
+    },
+    
+    // Refresh R session
+    {
+        "key": "ctrl+shift+r",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "editorFocus",
+        "args": { "text": " q('no')\nR\n"}
+    },
+
+    // sever contents via webserver port 8000 
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "python3 -m http.server\n" }
+    },
+    
+    // build current file via make
+    // {
+    //     "key": "ctrl+shift+b",
+    //     "command": "command-runner.run",
+    //     "args": { "command": "make -B ${relativeFile}" }
+    // },
+    
+    {
+        "key": "ctrl+shift+b",
+        "command" : "command-runner.run",
+        "when" : "editorTextFocus && resourceExtname == .R",
+        "args" : { "command" : "Rscript ${relativeFile} 2>&1 | tee log/${fileBasenameNoExtension}.log"}
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command" : "command-runner.run",
+        "when" : "editorTextFocus && resourceExtname == .Rmd",
+        "args" : { "command" : "Rscript -e \"rmarkdown::render(input = '${relativeFile}', output_file = '${fileBasenameNoExtension}.html',output_dir = 'output', knit_root_dir = getwd() )\" 2>&1 | tee log/${fileBasenameNoExtension}.log"}
+    },
+    
+    
+    
+    // ${file}: activated file path;
+    // ${fileBasename}: activated file basename;
+    // ${fileBasenameNoExtension}: activated file basename with no extension;
+    // ${fileDirname}: activated file dirname;
+    // ${fileExtname}: activated file extension;
+    // ${lineNumber}: the first selected line number;
+    // ${lineNumbers}: the all selected line number, eg. 41,46,80;
+    // ${selectedText}: the first selected text;
+    // ${selectedTextList}: the all selected text list, eg. sl1 sl2;
+    // ${selectedPosition}: the selected position list, eg. 21,6;
+    // ${selectedPositionList}: the all selected position list, eg. 45,6 80,18 82,5;
+    // ${relativeFile}: activated file relative path;
+    // ${workspaceFolder}: activated workspace folder path;
+    // ${workspaceFolderBasename}: activated workspace folder basename;
+    // ${homedir}: the home directory of the current user;
+    // ${tmpdir}: default directory for temporary files;
+    // ${env:PATH}: shell environment variable "PATH";
+    // ${config:editor.fontSize}: vscode config variable;
+    // ${command:workbench.action.terminal.clear}: run vscode command;
+
+]

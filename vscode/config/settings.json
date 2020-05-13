@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Default Light+",
     "editor.trimAutoWhitespace": false, //Stop auto removing of white space
     "editor.renderWhitespace": "all",    //View white space
     "files.eol": "\n",
@@ -17,7 +16,7 @@
             ]
         }
     ],
-    
+    "editor.formatOnType" : true,
     "window.zoomLevel": 0,
     "explorer.confirmDragAndDrop": false,
     "editor.detectIndentation": false,
@@ -30,10 +29,9 @@
 		"editor.autoIndent": "brackets"
     },
     "terminal.external.osxExec": "Iterm.app",
-    "r.bracketedPaste": true,
     "r.alwaysUseActiveTerminal": true,
     "files.associations": {
-        "*.rmd": "markdown"
+        "*.rmd": "rmd"
     },
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -41,8 +39,30 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.autoClosingOvertype": "always",
     "vim.vimrc.enable": true,
-    "todo-tree.highlights.defaultHighlight": {
-        "background": "white"
+    "r.sessionWatcher": true,
+    "command-runner.commands": {
+        "R Install Local Package": "Rscript -e 'devtools::document(); devtools::install()'"
     },
-    "r.sessionWatcher": true
+    "remote.containers.defaultExtensions": [
+        "docsmsft.docs-yaml",
+        "edonet.vscode-command-runner",
+        "Gruntfuggly.todo-tree",
+        "Ikuyadeu.r",
+        "ionutvmi.path-autocomplete",
+        "ivan-bocharov.stan-vscode",
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-vscode-remote.remote-containers",
+        "redhat.vscode-yaml",
+        "REditorSupport.r-lsp",
+        "ryuta46.multi-command",
+        "SolarLiner.linux-themes",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "vscode-icons-team.vscode-icons",
+        "vscodevim.vim"
+    ],
+    "editor.minimap.enabled": true,
+    "r.rterm.linux": "R",
+    "r.rterm.mac": "R",
+    "workbench.colorTheme": "Adapta Nokto"
 }
