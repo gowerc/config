@@ -23,12 +23,20 @@
         "command": "workbench.action.focusActiveEditorGroup"
     },
     { 
+        "key": "ctrl+p", 
+        "command": "workbench.action.problems.focus"
+    },
+    { 
         "key": "ctrl+t", 
         "command": "workbench.action.terminal.focus"
     }, 
     {
         "key" : "ctrl+x",
         "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key" :"ctrl+o",
+        "command" : "workbench.action.output.toggleOutput"
     },
     {
         "key": "alt+tab",
@@ -40,21 +48,26 @@
     // Interactive code execution 
     //
     ///////////////////
-    { 
-        "key": "ctrl+enter", 
-        "command": "extension.multiCommand.execute" , 
-        "args": { "command": "multiCommand.Line-run" },
-        "when": "editorTextFocus && !editorHasSelection"
-    },
-    {
-        "key": "ctrl+enter",
-        "command": "workbench.action.terminal.runSelectedText",
-        "when": "editorTextFocus && editorHasSelection"
-    },
+    // { 
+    //     "key": "ctrl+enter", 
+    //     "command": "extension.multiCommand.execute" , 
+    //     "args": { "command": "multiCommand.Line-run" },
+    //     "when": "editorTextFocus && !editorHasSelection"
+    // },
+    // {
+    //     "key": "ctrl+enter",
+    //     "command": "workbench.action.terminal.runSelectedText",
+    //     "when": "editorTextFocus && editorHasSelection"
+    // },
+    // {
+    //     "key" : "ctrl+enter",
+    //     "command" : "r.runSelection",
+    //     "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
+    // },
+    
     {
         "key" : "ctrl+enter",
-        "command" : "r.runSelection",
-        "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
+        "command" : "r.runSelectionInActiveTerm"
     },
     
     ////////////////////

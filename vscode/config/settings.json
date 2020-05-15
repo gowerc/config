@@ -17,7 +17,7 @@
         }
     ],
     "editor.formatOnType" : true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "explorer.confirmDragAndDrop": false,
     "editor.detectIndentation": false,
     "yaml.schemas": {
@@ -41,7 +41,11 @@
     "vim.vimrc.enable": true,
     "r.sessionWatcher": true,
     "command-runner.commands": {
-        "R Install Local Package": "Rscript -e 'devtools::document(); devtools::install()'"
+        "R Document" : "Rscript -e 'devtools::document()'",
+        "R Install" : "Rscript -e 'devtools::install()'",
+        "R Document & Install": "Rscript -e 'devtools::document(); devtools::install()'",
+        "Make Clean" : "make -B clean",
+        "Make All" : "make all"
     },
     "remote.containers.defaultExtensions": [
         "docsmsft.docs-yaml",
@@ -61,8 +65,19 @@
         "vscode-icons-team.vscode-icons",
         "vscodevim.vim"
     ],
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "r.rterm.linux": "R",
     "r.rterm.mac": "R",
-    "workbench.colorTheme": "Adapta Nokto"
+    "workbench.colorTheme": "Adapta Nokto",
+    "workbench.editor.showTabs": false,
+    
+    "workbench.colorCustomizations": {
+        "editor.selectionHighlightBackground" : "#534c81"
+    }, 
+    "editor.tokenColorCustomizations": {
+        "comments" : "#56b061"
+    },
+    
+    "workbench.panel.defaultLocation": "right"
+
 }
