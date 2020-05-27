@@ -1,4 +1,4 @@
-HERE=$PWD/vscode/
+HERE=$PWD/vscode/config
 
 VSPATH="/Users/gowerc/Library/Application Support/Code/User"
 

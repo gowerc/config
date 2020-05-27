@@ -1,3 +1,4 @@
+dbaeumer.vscode-eslint
 eamodio.gitlens
 edonet.vscode-command-runner
 Gruntfuggly.todo-tree
@@ -6,12 +7,12 @@ ionutvmi.path-autocomplete
 ivan-bocharov.stan-vscode
 ms-azuretools.vscode-docker
 ms-python.python
-ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
-redhat.vscode-yaml
+msjsdiag.debugger-for-chrome
 REditorSupport.r-lsp
 ryuta46.multi-command
 SolarLiner.linux-themes
 VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
 vscodevim.vim
+Zignd.html-css-class-completion

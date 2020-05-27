@@ -1,6 +1,13 @@
 [
-
-    
+	////////////////////
+	//
+	// Meta
+	//
+	///////////////////
+    {
+      "key": "cmd+alt+shift+i",
+      "command": "editor.action.inspectTMScopes"
+    },
     
     
     ////////////////////
@@ -12,6 +19,10 @@
         "key": "ctrl+z", 
         "command": "workbench.action.terminal.focus",
         "when": "editorTextFocus"
+    },
+    {
+        "key" : "ctrl+f",
+        "command": "workbench.files.action.focusFilesExplorer",
     },
     { 
         "key": "ctrl+z", 
@@ -48,26 +59,21 @@
     // Interactive code execution 
     //
     ///////////////////
-    // { 
-    //     "key": "ctrl+enter", 
-    //     "command": "extension.multiCommand.execute" , 
-    //     "args": { "command": "multiCommand.Line-run" },
-    //     "when": "editorTextFocus && !editorHasSelection"
-    // },
-    // {
-    //     "key": "ctrl+enter",
-    //     "command": "workbench.action.terminal.runSelectedText",
-    //     "when": "editorTextFocus && editorHasSelection"
-    // },
-    // {
-    //     "key" : "ctrl+enter",
-    //     "command" : "r.runSelection",
-    //     "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
-    // },
-    
+    { 
+        "key": "ctrl+enter", 
+        "command": "extension.multiCommand.execute" , 
+        "args": { "command": "multiCommand.Line-run" },
+        "when": "editorTextFocus && !editorHasSelection"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "workbench.action.terminal.runSelectedText",
+        "when": "editorTextFocus && editorHasSelection"
+    },
     {
         "key" : "ctrl+enter",
-        "command" : "r.runSelectionInActiveTerm"
+        "command" : "r.runSelectionInActiveTerm",
+        "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
     },
     
     ////////////////////
@@ -81,7 +87,7 @@
     {
         "key": "ctrl+shift+m",
         "command": "editor.action.insertSnippet",
-        "when" : "editorFocus",
+        "when" : "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
         "args": { "name": "pipes" }
     },
     {
@@ -109,10 +115,34 @@
     {
         "key": "ctrl+shift+r",
         "command": "workbench.action.terminal.sendSequence",
-        "when":  "editorFocus",
-        "args": { "text": " q('no')\nR\n"}
+        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+        "args": { "text": " q('no')\nR\noptions(width=Sys.getenv('COLUMNS'))\nsource(file.path(Sys.getenv(if (.Platform$OS.type == 'windows')'USERPROFILE' else 'HOME'), '.vscode-R', 'init.R'))\n"}
     },
-
+    
+    // R load all
+    {
+        "key": "ctrl+shift+l",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+        "args": { "text": "devtools::load_all()\n"}
+    },
+    
+    // R set terminal width
+    {
+        "key": "ctrl+shift+w",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+        "args": { "text": "options(width=Sys.getenv('COLUMNS'))\n"}
+    },
+    
+    // R set session watcher
+    {
+        "key": "ctrl+shift+q",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+        "args": { "text": "source(file.path(Sys.getenv(if (.Platform$OS.type == 'windows')'USERPROFILE' else 'HOME'), '.vscode-R', 'init.R'))\n"}
+    },
+    
     // sever contents via webserver port 8000 
     {
         "key": "ctrl+shift+s",
@@ -139,7 +169,12 @@
         "when" : "editorTextFocus && resourceExtname == .Rmd",
         "args" : { "command" : "Rscript -e \"rmarkdown::render(input = '${relativeFile}', output_file = '${fileBasenameNoExtension}.html',output_dir = 'output', knit_root_dir = getwd() )\" 2>&1 | tee log/${fileBasenameNoExtension}.log"}
     },
-    
+    {
+        "key": "ctrl+shift+b",
+        "command" : "command-runner.run",
+        "when" : "editorTextFocus && resourceExtname == .js",
+        "args" : { "command" : "node ${relativeFile}"}
+    },
     
     
     // ${file}: activated file path;

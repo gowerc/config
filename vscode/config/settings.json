@@ -1,11 +1,67 @@
 {
+	///////////////////
+    //
+    // Editor settings
+    //
+    ///////////////////
+	
+	
     "editor.trimAutoWhitespace": false, //Stop auto removing of white space
-    "editor.renderWhitespace": "all",    //View white space
-    "files.eol": "\n",
-    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+	"editor.renderWhitespace": "all",    //View white space
+	"editor.detectIndentation": true,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": true,
+	"editor.suggestSelection": "first",
+	"editor.minimap.enabled": false,
+	"editor.autoClosingOvertype": "always",
+	"explorer.confirmDelete": false,
+	"editor.formatOnType" : true,
+	
+	
+	///////////////////
+    //
+    // Misc vscode settings
+    //
+    ///////////////////
+	
+	"files.eol": "\n",
+	"window.zoomLevel": 1,
+	"explorer.confirmDragAndDrop": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.panel.defaultLocation": "right",
+    "workbench.editor.showTabs": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+	
+	// Mac specific
+	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+	"terminal.external.osxExec": "Iterm.app",
+	
+	
+	
+	///////////////////
+    //
+    // Colors and themes
+    //
+    ///////////////////
+	
+	"workbench.colorTheme": "Adapta Nokto",
+    "workbench.colorCustomizations": {
+        "editor.selectionHighlightBackground" : "#534c81"
+    }, 
+    "editor.tokenColorCustomizations": {
+        "comments" : "#56b061"
+    },
     
+    
+	
+	///////////////////
+    //
+    // Multicommand
+    //
+    ///////////////////
+	
     // Command to provide Rstudio like REPL
-    // Requires installation of multicommnad plugin
     "multiCommand.commands": [
         {
             "command": "multiCommand.Line-run",
@@ -15,40 +71,60 @@
                 "cancelSelection"
             ]
         }
-    ],
-    "editor.formatOnType" : true,
-    "window.zoomLevel": 1,
-    "explorer.confirmDragAndDrop": false,
-    "editor.detectIndentation": false,
-    "yaml.schemas": {
-        "file:///toc.schema.json": "/toc\\.yml/i"
-    },
+	],
+	
+	
+	///////////////////
+    //
+    //  R based extension settings
+    //
+	///////////////////
+	"r.rterm.linux": "",
+    "r.rterm.mac": "",
+    "r.lsp.diagnostics": false,
+	"r.sessionWatcher": true,
+	"files.associations": {
+		"*.rmd": "rmd"
+	},
+	
+	
+	///////////////////
+    //
+    // Command Runner
+    //
+    ///////////////////
+	
+	"command-runner.commands": {
+		"R: Document" : "Rscript -e 'devtools::document()'",
+		"R: Install" : "Rscript -e 'devtools::install()'",
+		"R: Document & Install": "Rscript -e 'devtools::document(); devtools::install()'",
+		"R: Test" : "Rscript -e \"devtools::load_all(); testthat::test_dir('./tests/testthat',stop_on_failure = TRUE)\" ",
+		"Make: Clean" : "make -B clean",
+		"Make: All" : "make all"
+	},
+	
+	///////////////////
+    //
+    //  YAML
+    //
+	///////////////////
+	
     "[yaml]":  {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 4,
 		"editor.autoIndent": "brackets"
     },
-    "terminal.external.osxExec": "Iterm.app",
-    "r.alwaysUseActiveTerminal": true,
-    "files.associations": {
-        "*.rmd": "rmd"
-    },
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.jediEnabled": false,
-    "workbench.iconTheme": "vscode-icons",
-    "editor.autoClosingOvertype": "always",
-    "vim.vimrc.enable": true,
-    "r.sessionWatcher": true,
-    "command-runner.commands": {
-        "R Document" : "Rscript -e 'devtools::document()'",
-        "R Install" : "Rscript -e 'devtools::install()'",
-        "R Document & Install": "Rscript -e 'devtools::document(); devtools::install()'",
-        "Make Clean" : "make -B clean",
-        "Make All" : "make all"
-    },
+    
+    
+	///////////////////
+	//
+	//  Remotes
+	//
+	///////////////////
+
     "remote.containers.defaultExtensions": [
-        "docsmsft.docs-yaml",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
         "edonet.vscode-command-runner",
         "Gruntfuggly.todo-tree",
         "Ikuyadeu.r",
@@ -56,28 +132,26 @@
         "ivan-bocharov.stan-vscode",
         "ms-azuretools.vscode-docker",
         "ms-python.python",
-        "ms-vscode-remote.remote-containers",
-        "redhat.vscode-yaml",
+        "ms-vscode-remote.remote-ssh",
+        "msjsdiag.debugger-for-chrome",
         "REditorSupport.r-lsp",
         "ryuta46.multi-command",
         "SolarLiner.linux-themes",
         "VisualStudioExptTeam.vscodeintellicode",
         "vscode-icons-team.vscode-icons",
-        "vscodevim.vim"
+        "vscodevim.vim",
+        "Zignd.html-css-class-completion"
     ],
-    "editor.minimap.enabled": false,
-    "r.rterm.linux": "R",
-    "r.rterm.mac": "R",
-    "workbench.colorTheme": "Adapta Nokto",
-    "workbench.editor.showTabs": false,
     
-    "workbench.colorCustomizations": {
-        "editor.selectionHighlightBackground" : "#534c81"
-    }, 
-    "editor.tokenColorCustomizations": {
-        "comments" : "#56b061"
-    },
-    
-    "workbench.panel.defaultLocation": "right"
+	///////////////////
+	//
+	//  Python
+	//
+	///////////////////
+
+    "python.linting.pylintUseMinimalCheckers": false,
+	"python.jediEnabled": false,
+    "python.linting.flake8Enabled": true
 
 }
+
