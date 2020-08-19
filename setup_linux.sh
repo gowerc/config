@@ -13,5 +13,5 @@ wget -q -O - $REPO/rstudio/rstudio-prefs.json  > $HOME/.config/rstudio/rstudio-p
 
 
 ## Vim
-wget -q -O - $REPO/vim/.vimrc >  $HOME/.vimrc
+wget -q -O - $REPO/vim/vimrc >  $HOME/.vimrc
 
