@@ -150,8 +150,45 @@
 	///////////////////
 
     "python.linting.pylintUseMinimalCheckers": false,
-	"python.jediEnabled": false,
-    "python.linting.flake8Enabled": true
+    "python.jediEnabled": false,
+    "python.linting.flake8Enabled": true,
 
+	///////////////////
+	//
+	//  VIM
+	//
+	///////////////////
+	    
+    "vim.handleKeys":{
+        "<C-c>": false,
+        "<C-x>": false,
+        "<C-v>": false,
+        "<C-z>": 
+    },
+	    
+	///////////////////
+	//
+	//  Spell Check
+	//
+	///////////////////
+	    
+	 "cSpell.userWords": [
+        "Acyl",
+        "Disaccharide",
+        "Electronegativity",
+        "Monosaccharide",
+        "Ribosomes",
+        "Triacylglycerol",
+        "amphipathic",
+        "deoxyribose",
+        "galactose",
+        "phospholipids",
+        "ribose",
+        "sphingolipids",
+        "stereoisomer",
+        "trans",
+        "triglycerides"
+    ]   
+	    
 }
 
