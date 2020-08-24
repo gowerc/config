@@ -16,37 +16,37 @@
     //
     ///////////////////
     { 
-        "key": "ctrl+z", 
+        "key": "alt+z", 
         "command": "workbench.action.terminal.focus",
         "when": "editorTextFocus"
     },
     {
-        "key" : "ctrl+f",
+        "key" : "alt+f",
         "command": "workbench.files.action.focusFilesExplorer",
     },
     { 
-        "key": "ctrl+z", 
+        "key": "alt+z", 
         "command": "workbench.action.focusActiveEditorGroup", 
         "when": "terminalFocus"
     },    
     { 
-        "key": "ctrl+e", 
+        "key": "alt+e", 
         "command": "workbench.action.focusActiveEditorGroup"
     },
     { 
-        "key": "ctrl+p", 
+        "key": "alt+p", 
         "command": "workbench.action.problems.focus"
     },
     { 
-        "key": "ctrl+t", 
+        "key": "alt+t", 
         "command": "workbench.action.terminal.focus"
     }, 
     {
-        "key" : "ctrl+x",
+        "key" : "alt+x",
         "command": "workbench.action.terminal.focusNext"
     },
     {
-        "key" :"ctrl+o",
+        "key" :"alt+o",
         "command" : "workbench.action.output.toggleOutput"
     },
     {
