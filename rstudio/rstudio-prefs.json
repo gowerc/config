@@ -37,5 +37,10 @@
     "wrap_tab_navigation": false,
     "reuse_sessions_for_project_links": true,
     "editor_theme": "Monokai",
-    "posix_terminal_shell": "bash"
+    "posix_terminal_shell": "bash",
+    "jobs_tab_visibility": "shown",
+    "save_workspace": "never",
+    "load_workspace": false,
+    "always_save_history": false,
+    "pdf_previewer": "none"
 }
