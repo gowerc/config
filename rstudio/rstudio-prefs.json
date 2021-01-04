@@ -29,18 +29,17 @@
     "show_margin": false,
     "editor_keybindings": "vim",
     "font_size_points": 11,
-    "default_project_location": "~",
-    "source_with_echo": true,
+    "default_project_location": "~/Desktop/Personal",
     "default_sweave_engine": "knitr",
     "default_latex_program": "XeLaTeX",
     "show_hidden_files": true,
     "wrap_tab_navigation": false,
     "reuse_sessions_for_project_links": true,
-    "editor_theme": "Monokai",
     "posix_terminal_shell": "bash",
     "jobs_tab_visibility": "shown",
     "save_workspace": "never",
     "load_workspace": false,
     "always_save_history": false,
-    "pdf_previewer": "none"
+    "pdf_previewer": "none",
+    "new_proj_git_init": true
 }
