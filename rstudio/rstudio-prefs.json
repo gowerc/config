@@ -29,7 +29,6 @@
     "show_margin": false,
     "editor_keybindings": "vim",
     "font_size_points": 11,
-    "default_project_location": "~/Desktop/Personal",
     "default_sweave_engine": "knitr",
     "default_latex_program": "XeLaTeX",
     "show_hidden_files": true,
@@ -41,5 +40,14 @@
     "load_workspace": false,
     "always_save_history": false,
     "pdf_previewer": "none",
-    "new_proj_git_init": true
+    "new_proj_git_init": true,
+    "initial_working_directory": "~",
+    "editor_theme": "Monokai",
+    "submit_crash_reports": false,
+    "soft_wrap_r_files": true,
+    "show_invisibles": true,
+    "scroll_past_end_of_document": true,
+    "rmd_chunk_output_inline": false,
+    "knit_working_dir": "project",
+    "spelling_dictionary_language": "en_GB"
 }
