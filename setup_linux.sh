@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
-REPO=https://raw.githubusercontent.com/gowerc/config/master
-
 
 ## Bash Profile
-wget -q -O - $REPO/bash/bash_profile  > $HOME/.bash_profile
+wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/bash/bash_profile  > $HOME/.bash_profile
 
+
+## zshrc
+wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/zsh/.zshrc  > $HOME/.zshrc
 
 ## Rstudio 
 mkdir -p ~/.config/rstudio
-wget -q -O - $REPO/rstudio/rstudio-prefs.json  > $HOME/.config/rstudio/rstudio-prefs.json
+wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/rstudio/rstudio-prefs.json  > $HOME/.config/rstudio/rstudio-prefs.json
 
 
 ## Vim
-wget -q -O - $REPO/vim/vimrc >  $HOME/.vimrc
+wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/vim/vimrc >  $HOME/.vimrc
 
