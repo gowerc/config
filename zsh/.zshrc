@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:$HOME/Library/Python/3.7/bin/:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/gowerc/.oh-my-zsh"
+export ZSH="$HOME/gowerc/.oh-my-zsh"
 
 
 #### ZSH Auto Suggestion
