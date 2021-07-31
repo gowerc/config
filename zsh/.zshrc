@@ -31,6 +31,7 @@ source $ZSH/oh-my-zsh.sh
 ### Install
 ### mkdir -p "$HOME/.zsh"
 ### git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+export PURE_PROMPT_SYMBOL=">"
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
