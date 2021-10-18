@@ -56,3 +56,6 @@ alias gl="git log"
 alias ll="ls -lh"
 alias cd..="cd .."
 alias la="ls -a"
+
+## Stop git from using "less" to view stuff
+export LESS=FRX
