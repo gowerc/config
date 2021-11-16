@@ -1,3 +1,15 @@
+### Setup instructions
+
+
+### Install Pure Theme
+### mkdir -p "$HOME/.zsh"
+### git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+
+### Install autocompletions
+### git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/Library/Python/3.7/bin/:/usr/local/bin:$PATH
 
@@ -5,10 +17,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 
-#### ZSH Auto Suggestion
 
-### Install
-### git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+#### ZSH Auto Suggestion
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_STRATEGY=(completion history  match_prev_cmd)
 
@@ -20,21 +30,19 @@ if type brew &>/dev/null; then
 fi
 
 
-### ZSH Extensions
 
+### ZSH Extensions
 plugins=(git docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 
 
-#### Pure Theme
 
-### Install
-### mkdir -p "$HOME/.zsh"
-### git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+#### Pure Theme
 export PURE_PROMPT_SYMBOL=">"
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
+
 
 
 ## Enable Comlpetion system
