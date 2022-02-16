@@ -67,3 +67,9 @@ alias la="ls -a"
 
 ## Stop git from using "less" to view stuff
 export LESS=FRX
+
+
+## Use VIM as default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
