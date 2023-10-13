@@ -3,6 +3,7 @@
 
 ## Bash Profile
 wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/bash/bash_profile  > $HOME/.bash_profile
+wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/bash/bashrc  > $HOME/.bashrc
 
 
 ## zshrc
