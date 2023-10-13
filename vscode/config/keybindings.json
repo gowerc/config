@@ -8,7 +8,10 @@
       "key": "cmd+alt+shift+i",
       "command": "editor.action.inspectTMScopes"
     },
-    
+    {
+        "key": "cmd+shift+t",
+        "command": "workbench.action.tasks.test"
+    },
     
     ////////////////////
     //
@@ -31,9 +34,10 @@
     },    
     { 
         "key": "alt+e", 
-        "command": "workbench.action.focusActiveEditorGroup"
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": "terminalFocus"
     },
-    { 
+    {
         "key": "alt+p", 
         "command": "workbench.action.problems.focus"
     },
@@ -59,10 +63,18 @@
     // Interactive code execution 
     //
     ///////////////////
-    { 
-        "key": "ctrl+enter", 
-        "command": "extension.multiCommand.execute" , 
-        "args": { "command": "multiCommand.Line-run" },
+    {
+        "key": "ctrl+enter",
+        "command": "runCommands",
+        "args": { 
+            "commands": [
+                "cursorLineStart",
+                "expandLineSelection",
+                "workbench.action.terminal.runSelectedText",
+                "cancelSelection",
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        },
         "when": "editorTextFocus && !editorHasSelection"
     },
     {
@@ -72,9 +84,14 @@
     },
     {
         "key" : "ctrl+enter",
-        "command" : "r.runSelectionInActiveTerm",
+        "command" : "r.runSelection",
         "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
     },
+    // {
+    //     "key" : "ctrl+enter",
+    //     "command" : "workbench.action.terminal.runSelectedText",
+    //     "when" :  "editorTextFocus && resourceExtname =~  /.R$|.Rmd$/"
+    // },
     
     ////////////////////
     //
@@ -87,17 +104,26 @@
     {
         "key": "ctrl+shift+m",
         "command": "editor.action.insertSnippet",
-        "when" : "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
-        "args": { "name": "pipes" }
+        "when" : "editorFocus && resourceExtname =~  /.R$|.Rmd$|.r$/",
+        "args": {
+            "snippet": "|>"
+        }
     },
     {
         "key": "ctrl+shift+m",
         "command": "workbench.action.terminal.sendSequence",
         "when":  "terminalFocus",
-        "args": { "text": "%>%" }
+        "args": { "text": "|>" }
      },
      
-         
+    
+     {
+        "key": "alt+m",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+        "args": "dplyr::glimpse($$)"
+     },
+     
     ////////////////////
     //
     // Batch Command execution
@@ -105,31 +131,60 @@
     ///////////////////
     
     
-    // Open pre-set commands
-    {
-        "key": "ctrl+shift+c",
-        "command": "command-runner.run"
-    },
-    
     // Refresh R session
+    // {
+    //     "key": "alt+r",
+    //     "command": "workbench.action.terminal.sendSequence",
+    //     "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+    //     "args": { "text": " q('no')\nR\noptions(width=Sys.getenv('COLUMNS'))\nsource(file.path(Sys.getenv(if (.Platform$OS.type == 'windows')'USERPROFILE' else 'HOME'), '.vscode-R', 'init.R'))\n"}
+    // },
     {
-        "key": "ctrl+shift+r",
+        "key": "alt+r",
+        "command": "runCommands",
+        "args": { 
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": { "text": "q('no')\u000d" }
+                },
+                "r.createRTerm",
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        },
+        "when": "editorFocus && resourceExtname =~  /.R$|.Rmd$/"
+    },
+    // R load all - Editor focus
+    {
+        "key": "alt+l",
         "command": "workbench.action.terminal.sendSequence",
         "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
-        "args": { "text": " q('no')\nR\noptions(width=Sys.getenv('COLUMNS'))\nsource(file.path(Sys.getenv(if (.Platform$OS.type == 'windows')'USERPROFILE' else 'HOME'), '.vscode-R', 'init.R'))\n"}
+        "args": { "text": "devtools::load_all()\u000d"}
+    },
+    //R load all - Terminal focus
+    { 
+        "key": "alt+l",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "terminalFocus",
+        "args": { "text": "devtools::load_all()\u000d"}
+    },
+    // R Document
+    {
+        "key": "alt+d",
+        "command": "workbench.action.terminal.sendSequence",
+        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
+        "args": { "text": "devtools::document()\u000d"}
     },
     
-    // R load all
+    // R Help
     {
-        "key": "ctrl+shift+l",
-        "command": "workbench.action.terminal.sendSequence",
-        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
-        "args": { "text": "devtools::load_all()\n"}
+        "key": "alt+h",
+        "command": "r.helpPanel.openForSelection",
+        "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/"
     },
     
     // R set terminal width
     {
-        "key": "ctrl+shift+w",
+        "key": "alt+w",
         "command": "workbench.action.terminal.sendSequence",
         "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
         "args": { "text": "options(width=Sys.getenv('COLUMNS'))\n"}
@@ -137,7 +192,7 @@
     
     // R set session watcher
     {
-        "key": "ctrl+shift+q",
+        "key": "alt+q",
         "command": "workbench.action.terminal.sendSequence",
         "when":  "editorFocus && resourceExtname =~  /.R$|.Rmd$/",
         "args": { "text": "source(file.path(Sys.getenv(if (.Platform$OS.type == 'windows')'USERPROFILE' else 'HOME'), '.vscode-R', 'init.R'))\n"}
@@ -145,56 +200,27 @@
     
     // sever contents via webserver port 8000 
     {
-        "key": "ctrl+shift+s",
+        "key": "alt+s",
         "command": "workbench.action.terminal.sendSequence",
         "args": { "text": "python3 -m http.server\n" }
     },
-    
-    // build current file via make
-    // {
-    //     "key": "ctrl+shift+b",
-    //     "command": "command-runner.run",
-    //     "args": { "command": "make -B ${relativeFile}" }
-    // },
-    
-    {
-        "key": "ctrl+shift+b",
-        "command" : "command-runner.run",
-        "when" : "editorTextFocus && resourceExtname == .R",
-        "args" : { "command" : "Rscript ${relativeFile} 2>&1 | tee log/${fileBasenameNoExtension}.log"}
-    },
-    {
-        "key": "ctrl+shift+b",
-        "command" : "command-runner.run",
-        "when" : "editorTextFocus && resourceExtname == .Rmd",
-        "args" : { "command" : "Rscript -e \"rmarkdown::render(input = '${relativeFile}', output_file = '${fileBasenameNoExtension}.html',output_dir = 'output', knit_root_dir = getwd() )\" 2>&1 | tee log/${fileBasenameNoExtension}.log"}
-    },
-    {
-        "key": "ctrl+shift+b",
-        "command" : "command-runner.run",
-        "when" : "editorTextFocus && resourceExtname == .js",
-        "args" : { "command" : "node ${relativeFile}"}
+
+    { 
+        "key": ".", 
+        "command": ""
     },
     
     
-    // ${file}: activated file path;
-    // ${fileBasename}: activated file basename;
-    // ${fileBasenameNoExtension}: activated file basename with no extension;
-    // ${fileDirname}: activated file dirname;
-    // ${fileExtname}: activated file extension;
-    // ${lineNumber}: the first selected line number;
-    // ${lineNumbers}: the all selected line number, eg. 41,46,80;
-    // ${selectedText}: the first selected text;
-    // ${selectedTextList}: the all selected text list, eg. sl1 sl2;
-    // ${selectedPosition}: the selected position list, eg. 21,6;
-    // ${selectedPositionList}: the all selected position list, eg. 45,6 80,18 82,5;
-    // ${relativeFile}: activated file relative path;
-    // ${workspaceFolder}: activated workspace folder path;
-    // ${workspaceFolderBasename}: activated workspace folder basename;
-    // ${homedir}: the home directory of the current user;
-    // ${tmpdir}: default directory for temporary files;
-    // ${env:PATH}: shell environment variable "PATH";
-    // ${config:editor.fontSize}: vscode config variable;
-    // ${command:workbench.action.terminal.clear}: run vscode command;
+    // Disable default cmd+, which opens settings menu
+    {
+        "key": "cmd+,",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    // Replace cmd+,  to open hover menu
+    {
+        "key": "alt+,",
+        "command": "editor.action.showHover",
+        "when": "editorFocus"
+    },
 
 ]
