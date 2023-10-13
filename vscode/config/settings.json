@@ -1,194 +1,344 @@
 {
-	///////////////////
+    ///////////////////
     //
     // Editor settings
     //
     ///////////////////
-	
-	
-    "editor.trimAutoWhitespace": false, //Stop auto removing of white space
-	"editor.renderWhitespace": "all",    //View white space
-	"editor.detectIndentation": true,
-	"editor.tabSize": 4,
-	"editor.insertSpaces": true,
-	"editor.suggestSelection": "first",
-	"editor.minimap.enabled": false,
-	"editor.autoClosingOvertype": "always",
-	"explorer.confirmDelete": false,
-	"editor.formatOnType" : true,
-	
-	
-	///////////////////
+
+    
+    "editor.trimAutoWhitespace": false,      // Stop auto removing of white space
+    "editor.renderWhitespace": "all",        // View white space
+    "editor.detectIndentation": true,        // Auto determine how much space for tab
+    "editor.tabSize": 4,                     // default tab space (see above)
+    "editor.insertSpaces": true,             // Insert spaces for tabs
+    "editor.suggestSelection": "first",
+    "editor.minimap.enabled": false,
+    "editor.autoClosingOvertype": "always",
+    "explorer.confirmDelete": false,
+    "editor.formatOnType" : true,
+    "editor.rulers": [100],
+    "editor.inlineSuggest.enabled": true,
+
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/renv/**": true
+    },
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/venv": true,
+        "**/renv": true,
+        "**/tmp": true
+    },
+
+
+
+
+
+    ///////////////////
     //
-    // Misc vscode settings
+    // Global Settings for VScode
     //
     ///////////////////
-	
-	"files.eol": "\n",
-	"window.zoomLevel": 1,
-	"explorer.confirmDragAndDrop": false,
+
+    "window.titleBarStyle": "custom",        // Linux remove top title bar to get more verticle space
+    "files.eol": "\n",
+    "explorer.confirmDragAndDrop": false,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"workbench.iconTheme": "vscode-icons",
-	"workbench.panel.defaultLocation": "right",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.panel.defaultLocation": "bottom",
     "workbench.editor.showTabs": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-	
-	// Mac specific
-	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-	"terminal.external.osxExec": "Iterm.app",
-	
-	
-	
-	///////////////////
+    "settingsSync.keybindingsPerPlatform": false,
+    "window.zoomLevel": 2,
+    "vsicons.dontShowNewVersionMessage": true,
+    // Mac specific
+    "terminal.external.osxExec": "Iterm.app",
+
+
+
+
+
+
+    ///////////////////
     //
     // Colors and themes
     //
     ///////////////////
-	
-	"workbench.colorTheme": "Adapta Nokto",
+
+    "workbench.colorTheme": "Hop Light",
+    "editor.selectionHighlight": true,
+    "editor.roundedSelection": false,
+    "editor.occurrencesHighlight": false,
+
+    // Background colours when highlighting text
+    // Background colours of matched words when making a selction
     "workbench.colorCustomizations": {
-        "editor.selectionHighlightBackground" : "#534c81"
-    }, 
-    "editor.tokenColorCustomizations": {
-        "comments" : "#56b061"
+        "editor.selectionBackground": "#62c3d8",
+        "editor.selectionHighlightBackground": "#d7d6d6",
+        "quickInputList.focusBackground": "#cacaca"
     },
     
+    // Overwriting the default commment colour
+    "editor.tokenColorCustomizations": {
+        "textMateRules" : [
+            {
+                "scope": "comment",
+                "settings": {
+                    "foreground": "#25a723"
+                }
+            }
+        ]
+    },
     
-	
-	///////////////////
-    //
-    // Multicommand
-    //
-    ///////////////////
-	
-    // Command to provide Rstudio like REPL
-    "multiCommand.commands": [
-        {
-            "command": "multiCommand.Line-run",
-            "sequence": [
-                "expandLineSelection",
-                "workbench.action.terminal.runSelectedText",
-                "cancelSelection"
-            ]
+    // Forcing Hoplight to use semantic highlighting for SAS as it doesn't opt in by default
+    "[sas]":{
+        "editor.semanticHighlighting.enabled": true
+    },
+    //Matches from semantic tokens take precidence over textMate rules
+    "editor.semanticTokenColorCustomizations": {
+        "rules": {
+            "sec-keyword:sas":{"foreground": "#491cfc"},
+            "proc-name:sas": {"foreground": "#491cfc"}
         }
-	],
-	
-	
-	///////////////////
+    },
+
+
+
+
+    ///////////////////
     //
     //  R based extension settings
     //
-	///////////////////
-	"r.rterm.linux": "",
-    "r.rterm.mac": "",
-    "r.lsp.diagnostics": false,
-	"r.sessionWatcher": true,
-	"files.associations": {
-		"*.rmd": "rmd"
-	},
-	
-	
-	///////////////////
-    //
-    // Command Runner
-    //
     ///////////////////
-	
-	"command-runner.commands": {
-		"R: Document" : "Rscript -e 'devtools::document()'",
-		"R: Install" : "Rscript -e 'devtools::install()'",
-		"R: Document & Install": "Rscript -e 'devtools::document(); devtools::install()'",
-		"R: Test" : "Rscript -e \"devtools::load_all(); testthat::test_dir('./tests/testthat',stop_on_failure = TRUE)\" ",
-		"Make: Clean" : "make -B clean",
-		"Make: All" : "make all"
-	},
-	
-	///////////////////
+    "files.associations": {
+        "*.rmd": "rmd"
+    },
+    "r.alwaysUseActiveTerminal": true,
+    "r.liveShare.defaults.shareWorkspace": false,
+    "r.lsp.promptToInstall": false,
+    "r.session.objectTimeout": 10,
+    "r.session.useWebServer": false,
+    "r.sessionWatcher": true,
+
+
+
+
+    ///////////////////
     //
     //  YAML
     //
-	///////////////////
-	
-    "[yaml]":  {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 4,
-		"editor.autoIndent": "brackets"
-    },
-    
-    
-	///////////////////
-	//
-	//  Remotes
-	//
-	///////////////////
+    ///////////////////
 
-    "remote.containers.defaultExtensions": [
+    "[yaml]":  {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.autoIndent": "brackets"
+    },
+
+
+    ///////////////////
+    //
+    //  Remotes
+    //
+    ///////////////////
+
+    "dev.containers.defaultExtensions": [
+        "13xforever.language-x86-64-assembly",
+        "ban.spellright",
+        "bubersson.theme-hop-light",
+        "bungcip.better-toml",
+        "christian-kohler.path-intellisense",
         "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
-        "edonet.vscode-command-runner",
+        "GitHub.vscode-pull-request-github",
+        "glenn2223.live-sass",
+        "goessner.mdmath",
         "Gruntfuggly.todo-tree",
-        "Ikuyadeu.r",
-        "ionutvmi.path-autocomplete",
+        "hediet.vscode-drawio",
         "ivan-bocharov.stan-vscode",
         "ms-azuretools.vscode-docker",
         "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode-remote.remote-containers",
         "ms-vscode-remote.remote-ssh",
-        "msjsdiag.debugger-for-chrome",
-        "REditorSupport.r-lsp",
-        "ryuta46.multi-command",
-        "SolarLiner.linux-themes",
+        "ms-vscode-remote.remote-ssh-edit",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.hexeditor",
+        "ms-vscode.remote-explorer",
+        "quarto.quarto",
+        "REditorSupport.r",
+        "ritwickdey.LiveServer",
+        "SAS.sas-lsp",
+        "snakemake.snakemake-lang",
+        "twxs.cmake",
+        "vadimcn.vscode-lldb",
         "VisualStudioExptTeam.vscodeintellicode",
         "vscode-icons-team.vscode-icons",
         "vscodevim.vim",
+        "Vue.volar",
         "Zignd.html-css-class-completion"
     ],
+
+    ///////////////////
+    //
+    //  Python
+    //
+    ///////////////////
+    "python.analysis.typeCheckingMode": "basic",
+    "python.languageServer": "Pylance",
+    "python.analysis.completeFunctionParens": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+
     
-	///////////////////
-	//
-	//  Python
-	//
-	///////////////////
+    
+    
+    ///////////////////
+    //
+    //  CPP
+    //
+    ///////////////////
+    
+    "[cpp]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.formatOnType" : false,
+    },
+    
+    
+    
+    
+    ///////////////////
+    //
+    //  VIM
+    //
+    ///////////////////
 
-    "python.linting.pylintUseMinimalCheckers": false,
-    "python.jediEnabled": false,
-    "python.linting.flake8Enabled": true,
-
-	///////////////////
-	//
-	//  VIM
-	//
-	///////////////////
-	    
     "vim.handleKeys":{
         "<C-c>": false,
         "<C-x>": false,
         "<C-v>": false,
-        "<C-z>": false
+        "<C-z>": false,
+        "<C-b>": false,
+        "<C-a>": false,
+        "<C-s>": false,
+        "<C-f>": false,
+        "<C-r>": false,
+        "<C-k>": false,
+        "<C-d>": false,
     },
-	    
-	///////////////////
-	//
-	//  Spell Check
-	//
-	///////////////////
-	    
-	 "cSpell.userWords": [
-        "Acyl",
-        "Disaccharide",
-        "Electronegativity",
-        "Monosaccharide",
-        "Ribosomes",
-        "Triacylglycerol",
-        "amphipathic",
-        "deoxyribose",
-        "galactose",
-        "phospholipids",
-        "ribose",
-        "sphingolipids",
-        "stereoisomer",
-        "trans",
-        "triglycerides"
-    ]   
-	    
-}
+    "keyboard.dispatch": "keyCode",
+    
 
+
+    ///////////////////
+    //
+    //  TODO-Tree
+    //
+    ///////////////////
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    
+    
+    ///////////////////////////////////
+    //
+    //  Git
+    //
+    ///////////////////////////////////
+    
+    
+    "git.ignoreLegacyWarning": true,
+    "gitlens.advanced.messages": {
+        "suppressGitVersionWarning": true
+    },
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "never",
+    "githubPullRequests.pullBranch": "never",
+    "git.autofetch": true,
+    
+    
+    
+    
+    ///////////////////////////////////
+    //
+    //  emmet
+    //
+    ///////////////////////////////////
+    
+    "emmet.excludeLanguages": [],  // Default exclude includes markdown
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "quarto": "html",
+        "markdown": "html"
+    },
+    
+    
+    ///////////////////////////////////
+    //
+    //  SAS
+    //
+    ///////////////////////////////////
+    "SAS.connectionProfiles": {
+        "activeProfile": "Local Profile",
+        "profiles": {
+            "Local Profile": {
+                "connectionType": "com",
+                "sasOptions": [],
+                "host": "localhost"
+            }
+        }
+    },
+    
+    
+    ///////////////////////////////////
+    //
+    //  Unsorted
+    //
+    //////////////////////////////////
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    
+    "spellright.language": [
+        "English (British)"
+    ],
+    
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    
+
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "liveSassCompile.settings.showOutputWindowOn": "Debug",
+
+    "telemetry.telemetryLevel": "off",
+    
+    
+    "path-intellisense.mappings": {
+        "./": "${workspaceFolder}",
+        // "lib": "${workspaceFolder}/lib",
+        // "global": "/Users/dummy/globalLibs"
+    },
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "debug.onTaskErrors": "abort",
+    "debug.focusEditorOnBreak": false,
+    "workbench.startupEditor": "none",
+    
+}
