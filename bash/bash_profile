@@ -1,6 +1,5 @@
-### Update PATH to include local bin
+### Update PATH to include local bin(s)
 export PATH=$PATH:~/.local/bin:~/bin
-
 
 ### Set git branch + dirty indictor
 function parse_git_branch {
@@ -10,7 +9,12 @@ function parse_git_dirty {
   [[ -n "$(git status -s 2> /dev/null)" ]] && echo "*"
 }
 
-export PS1="\[\033[38;5;25m\]\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\n\[\033[38;5;165m\]> \[\033[0m\]"
+export PS1='\
+\[\033[38;5;25m\]Lappy\[\e[0m\] \
+\[\e[38;5;28m\]$(pwd)\[\e[0m\] \
+\[\e[38;5;177m\]$(parse_git_branch)\[\e[0m\]\n\
+\[\033[38;5;165;1m\]> \[\e[0m\]'
+
 
 ### Aliases
 alias ls="ls --color"
@@ -22,3 +26,4 @@ alias cd-="cd -"
 alias gs="git status"
 alias gb="git branch --all"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
