@@ -3,6 +3,15 @@
 Repository containing various configuration files and setup scripts
 
 
+## Command to Install Everything
+
+```
+eval $(\
+    curl -s https://raw.githubusercontent.com/gowerc/config/master/README.md | \
+    awk '{$0} ";"' | \
+    grep "^wget")
+```
+
 
 ## Bash Profile
 
