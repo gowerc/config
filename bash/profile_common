@@ -24,7 +24,7 @@ command pyenv &> /dev/null && eval "$(pyenv init -)"
 ### What is this server/machine
 export NICKNAME=Lappy
 
-function startup () {
+function about () {
     echo ""
     echo "          |_| o";
     echo "          | | |";
@@ -58,4 +58,4 @@ function startup () {
     echo ""
 }
 
-startup
+about
