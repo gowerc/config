@@ -20,15 +20,22 @@ wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/zsh/zshrc  >
 wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/bash/profile_common  > $HOME/.profile_common
 ```
 
+
+## R
+
+```
+wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/R/Rprofile  > $HOME/.Rprofile
+```
+
 ## Rstudio
 ```
-mkdir -p ~/.config/rstudio
-wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/rstudio/rstudio-prefs.json  > $HOME/.config/rstudio/rstudio-prefs.json
+# mkdir -p ~/.config/rstudio
+# wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/rstudio/rstudio-prefs.json  > $HOME/.config/rstudio/rstudio-prefs.json
 ```
 
 
 ## Vim
 ```
-wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/vim/vimrc >  $HOME/.vimrc
+# wget -q -O - https://raw.githubusercontent.com/gowerc/config/master/vim/vimrc >  $HOME/.vimrc
 ```
 
