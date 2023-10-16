@@ -1,3 +1,7 @@
+
+### What is this server/machine
+export NICKNAME=Lappy
+
 ### Update PATH
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
@@ -21,23 +25,16 @@ export EDITOR="$VISUAL"
 ### If installed enable pyenv
 command pyenv &> /dev/null && eval "$(pyenv init -)" 
 
-### What is this server/machine
-export NICKNAME=Lappy
-
 function about () {
     echo ""
     echo "          |_| o";
     echo "          | | |";
     echo ""
-
     STRING='%-11s - %s\n'
     PREFIX="  "
-
     printf "$STRING" "${PREFIX}User" "${USER-Unknown}"
     printf "$STRING" "${PREFIX}Host" "${HOST-Unknown}"
     printf "$STRING" "${PREFIX}Nickname" "${NICKNAME-Unknown}"
-
-
     if command -v sw_vers &> /dev/null ; then
         LOCAL_SYS=$(sw_vers | awk '/ProductName/ {printf $2 " (" }  /ProductVersion/ {print $2 ")"}')
     elif [ -r /etc/os-release ]; then
@@ -53,9 +50,7 @@ function about () {
     else
         echo Unable to identify system
     fi
-
     printf "$STRING" "${PREFIX}System" "${LOCAL_SYS-Unknown}"
     echo ""
 }
-
 about
