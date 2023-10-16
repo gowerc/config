@@ -1,0 +1,23 @@
+
+### Update PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+### Aliases
+alias ls="ls --color"
+alias ll="ls -lh"
+alias la="ls -a"
+
+alias cd-="cd -"
+alias cd..="cd .."
+
+alias gs="git status"
+alias gb="git branch --all"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+## Set VIM as default editor for all programs
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+### If installed enable pyenv
+command pyenv &> /dev/null && eval "$(pyenv init -)" 
