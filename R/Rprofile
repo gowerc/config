@@ -1,0 +1,8 @@
+
+
+options(
+    "repos" = c(CRAN = "https://www.stats.bris.ac.uk/R"),
+    setWidthOnResize = TRUE
+)
+
+
