@@ -1,6 +1,6 @@
 
-### What is this server/machine
-export NICKNAME=Lappy
+### Load local machine specific profile (should set $NICKNAME)
+[ -r ~/.profile_nickname ] && source ~/.profile_local
 
 ### Update PATH
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
