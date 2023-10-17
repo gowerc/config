@@ -23,7 +23,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 ### If installed enable pyenv
-command pyenv &> /dev/null && eval "$(pyenv init -)" 
+command -v pyenv &> /dev/null && eval "$(pyenv init -)" 
 
 function about () {
     echo ""
