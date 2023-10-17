@@ -7,7 +7,7 @@ function parse_git_dirty {
   [[ -n "$(git status -s 2> /dev/null)" ]] && echo "*"
 }
 
-export PS1='\
+export PS1='
 \[\e[38;5;28m\]$(pwd)\[\e[0m\] \
 \[\e[38;5;177m\]$(parse_git_branch)\[\e[0m\]\n\
 \[\033[38;5;165;1m\]> \[\e[0m\]'
