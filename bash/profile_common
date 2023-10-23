@@ -17,6 +17,7 @@ alias gs="git status"
 alias gb="git branch --all"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
+alias psa"source venv/bin/activate"
 
 ### Set VIM as default editor for all programs
 export VISUAL=vim
