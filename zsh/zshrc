@@ -62,6 +62,9 @@ export PURE_PROMPT_SYMBOL=">"
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
+# Change styles of prompt symbol based on "sucess" and "failure"
+zstyle :prompt:pure:prompt:success color '#2215DD'
+zstyle :prompt:pure:prompt:error color '#FF2828'
 
 
 ### Enable zsh's completion system
